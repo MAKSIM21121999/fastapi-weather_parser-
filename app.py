@@ -14,8 +14,7 @@ def weather(city):
         t_max = el.select('.temperature .max')[0].text
         t_nightone = el.select('.temperature .p1 ')[0].text
         text = el.select('.wDescription .description')[0].text
-        message = ("Привет, погода на сегодня:\n" +
-                         t_min + ', ' + t_max + ', ' + t_nightone + '\n' + text)
+        message = ("Привет, погода на сегодня:" + t_min + ', ' + t_max + ', ' + t_nightone + '' + text)
     return message
 app = FastAPI()
 
