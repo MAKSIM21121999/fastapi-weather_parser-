@@ -21,4 +21,4 @@ app = FastAPI()
 @app.get("/weather/{city_name}")
 async def read_item(city_name):
     alarm = weather(city=city_name)
-    return {"weather info": alarm}
+    return {"weather_info_for_"+ city_name : alarm}
