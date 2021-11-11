@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 import requests
+from transliterate import translit, get_available_language_codes
 from bs4 import BeautifulSoup as BS
 
 message = ""
@@ -21,4 +22,5 @@ app = FastAPI()
 @app.get("/weather/{city_name}")
 async def read_item(city_name):
     alarm = weather(city=city_name)
-    return {"weather_info_for_"+ city_name : alarm}
+    city_name_t = translit(city_name, reversed=True)
+    return {"weather_info_for_" + city_name_t : alarm}
